@@ -1,0 +1,2318 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: signature;
+    src: url(fonts/A-Signature.otf);
+}
+@font-face {
+    font-family: logo;
+    src: url(fonts/Social\ Act.otf);
+}
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+
+body{
+    background-color: #1e1e1e;
+    color: white;
+    scroll-behavior: smooth;
+}
+/*              SCROLL STYLING           */
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        transparent,
+        #851813
+    );
+    border-radius: 10px;
+}
+@keyframes load{
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }    
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.login, .r-main, .update{
+    animation: load 1s ease;
+}
+
+@media screen and (min-width: 2560px){
+    body{
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 0.5fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 60px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 31px;
+    }
+
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+        width: 550px;
+
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 60px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: x-large;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 18px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+        font-size: x-large;
+    }
+
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 23px;
+        font-size: 21px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 10px 0;
+        
+    }
+    .login-btn button{
+        padding: 10px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: x-large;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 10px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: x-large;
+    }
+    .login{
+        padding: 5px;
+    }
+    
+    /*                  REGISTER                 */
+    .r-main{
+        justify-items: right;
+    }
+    .register{
+        width: 550px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 60px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: x-large;
+        color: orange;
+        font-weight: bold;
+        padding: 0 7px;
+    }
+    
+    .register form table input{
+        padding: 18px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+        font-size: x-large;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 23px;
+        font-size: 21px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: larger;
+    }
+    .register-btn{
+        padding: 10px 0;
+    }
+    .register-btn button{
+        padding: 10px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: x-large;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 550px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 60px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: x-large;
+        color: orange;
+        font-weight: bold;
+        padding: 0 7px;
+    }
+    #update input{
+        padding: 18px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+        font-size: x-large;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 23px;
+        font-size: 21px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 10px 0;
+    }
+    .update-btn button{
+        padding: 10px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: x-large;
+    }
+}
+
+/*          DESKTOP SCREEN MEDIUM    */
+@media screen and (min-width: 1440px) and (max-width: 2559px){
+    body{
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 0.5fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+/*         border: 1px solid #851813; */
+        width: 290px;
+
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+    
+    /*                  REGISTER                 */
+    .r-main{
+        justify-items: right;
+    }
+    .register{
+        width: 290px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 290px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}
+
+/*          LAPTOP SCREEN MEDIUM     */
+@media screen and (min-width: 1201px) and (max-width: 1439px) {
+    body{
+        display: grid;
+        grid-template-columns: 0.6fr 1.5fr 0.6fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+/*         border: 1px solid #851813; */
+        width: 260px;
+
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        /* font-family: cursive; */
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+    
+    /*                  REGISTER                 */
+    .r-main{
+        justify-items: right;
+    }
+    .register{
+        width: 260px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 260px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    
+    
+    
+}
+
+/*          LAPTOP SCREEN SMALL      */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    body{
+        display: grid;
+        grid-template-columns: 0.5fr 1.8fr 0.5fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+/*         border: 1px solid #851813; */
+        width: 260px;
+
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+    
+    /*                  REGISTER                 */
+    .r-main{
+        justify-items: right;
+    }
+    .register{
+        width: 260px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 260px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }    
+}
+
+/*          TABLET SCREEN          */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    body{
+        display: grid;
+        grid-template-columns: 0.3fr 1.7fr 0.3fr;
+        grid-template-rows: 0.7fr 3.5fr 0.3fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+        width: 230px;
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+    /*                  REGISTER                 */
+    .r-main{
+        justify-items: right;
+    }
+    .register{
+        width: 230px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 230px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}
+
+/*          MOBILE LARGE           */
+@media screen and (min-width: 425px) and (max-width: 767px){
+    body{
+        display: grid;
+        grid-template-columns: 0.1fr 2.7fr 0.1fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+        width: 260px;
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+
+    /*                  REGISTER                 */
+    .register{
+        width: 260px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 260px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}
+
+/*          MOBILE MEDIUM          */
+@media screen and (min-width: 375px) and (max-width: 424px){
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2.7fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+
+    /*                  LOGIN                */
+    .login{
+        width: 260px;
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+
+    /*                  REGISTER                 */
+    .register{
+        width: 260px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 260px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}
+
+/*          MOBILE SMALL            */
+@media screen and (min-width: 320px) and (max-width: 374px) {
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2.7fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+    /*                  LOGIN                */
+    .login{
+        width: 240px;
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+
+    /*                  REGISTER                 */
+    .register{
+        width: 240px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 260px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}
+
+@media screen and (max-width: 319px){
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2.7fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*                  HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+    .main{
+        grid-area: main;
+        padding: 10px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+    }
+    /*                  LOGIN                */
+    .login{
+        width: 220px;
+    }
+    .login-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error{
+        font-family: roboto;
+        padding: 0 7px;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    .login input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .login input::placeholder{
+        color: white;
+    }
+    .login-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .login .login-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .login .login-user{
+        border-bottom: 1px solid #851813;
+    }
+    .login-btn{
+        padding: 8px 0;
+    }
+    .login-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login-update{
+        padding: 4px 0;
+    }
+    .login-update button a{
+        text-decoration: none;
+        color: white;
+    }
+    .login-update button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .login{
+        padding: 5px;
+    }
+
+    /*                  REGISTER                 */
+    .register{
+        width: 220px;
+        padding: 5px;
+    }
+    .register-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error2{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+
+    .register form table input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    .register form table input::placeholder{
+        color: white;
+    }
+    .register-password .fa-eye, .back-user .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .register-user{
+        border-bottom: 1px solid #851813;
+    }
+    .register-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .back-user{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .hint{
+        padding: 2px 0;
+        font-family: roboto;
+        font-size: x-small;
+    }
+    .register-btn{
+        padding: 8px 0;
+    }
+    .register-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #106b6f;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+
+    /*           UPDATE PASSWORD          */
+    #update{
+        width: 220px;
+        padding: 5px;
+    }
+    .update-head{
+        padding: 3px 0px;
+        font-family: logo;
+        font-size: 23px;
+    }
+    .error3{
+        font-family: roboto;
+        font-size: small;
+        color: orange;
+        font-weight: bold;
+    }
+    #update input{
+        padding: 4px;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        font-family: roboto;
+        color: white;
+        border: none;
+    }
+    #update input::placeholder{
+        color: white;
+    }
+    .update-password .fa-eye{
+        cursor: pointer;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .update-user{
+        border-bottom: 1px solid #851813;
+    }
+    .update-password{
+        display: flex;
+        border-bottom: 1px solid #851813;
+    }
+    .update-btn{
+        padding: 8px 0;
+    }
+    .update-btn button{
+        padding: 4px;
+        font-family: roboto;
+        font-weight: bold;
+        border-radius: 8px;
+        border: none;
+        background-color: #106b6f;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+}

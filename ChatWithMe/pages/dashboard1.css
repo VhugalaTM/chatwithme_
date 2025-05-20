@@ -1,0 +1,2115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: signature;
+    src: url(../fonts/A-Signature.otf);
+}
+@font-face {
+    font-family: logo;
+    src: url(../fonts/Social\ Act.otf);
+}
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+body{
+    background-color: #1e1e1e;
+    color: white;
+    scroll-behavior: smooth;
+}
+/*              SCROLL STYLING           */
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        transparent,
+        #851813
+    );
+    border-radius: 10px;
+}
+@keyframes load {
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }    
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.username, .search, .inbox, .delete-footer{
+    animation: load 1s ease;
+}
+
+/*              4k SCREEN                   */
+@media screen and (min-width: 2560px){
+    body{
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr 0.5fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 60px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 31px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.2fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 50px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+        font-size: x-large;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 550px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+        font-size: x-large;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+        font-size: 21px;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: x-large;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 300px;
+        margin: 0 auto;
+        font-size: x-large;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 800px;
+        height: 70px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: 40px;
+        
+    }
+    .inbox table .inbox-user{
+        width: 225px;
+        padding-left: 3px;
+    }
+    .inbox table .msg-btn{
+        width: 97px;
+    }
+    .msg-btn button{
+        margin-left: 18px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+        font-size: x-large;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 26px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: x-large;
+    }
+    .status{
+        width: 75px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 2px;
+        font-family: roboto;
+        font-size: x-large;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-size: x-large;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+
+}
+
+/*          DESKTOP SCREEN               */
+@media screen and (min-width: 1440px) and (max-width: 2559px){
+    body{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100.53px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 25px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 340px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 300px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 400px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: 22px;
+    }
+    .inbox table .inbox-user{
+        width: 150px;
+        padding-left: 3px;
+    }
+    .inbox table .msg-btn{
+        width: 97px;
+    }
+    .msg-btn button{
+        margin-left: 18px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 26px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 75px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 2px;
+        font-family: roboto;
+        font-size: 14px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-family: roboto;
+    }
+
+
+}
+
+/*          LAPTOP MEDIUM SCREEN         */
+@media screen and (min-width: 1201px) and (max-width: 1439px){
+    body{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100.53px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 24px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 340px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 300px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 360px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: 21px;
+    }
+    .inbox table .inbox-user{
+        width: 150px;
+        padding-left: 3px;
+    }
+    .inbox table .msg-btn{
+        width: 97px;
+    }
+    .msg-btn button{
+        margin-left: 18px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 26px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 75px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 2px;
+        font-family: roboto;
+        font-size: 14px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+
+}
+
+/*          LAPTOP SMALL SCREEN          */
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    body{
+        display: grid;
+        grid-template-columns: 0.6fr 2fr 0.6fr;
+        grid-template-rows: 0.7fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100.53px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 23px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 340px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 300px;
+        margin: 0 auto;
+        font-size: 13px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 360px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: 21px;
+    }
+    .inbox table .inbox-user{
+        width: 150px;
+        padding-left: 3px;
+    }
+    .inbox table .msg-btn{
+        width: 97px;
+    }
+    .msg-btn button{
+        margin-left: 18px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: cursive;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 26px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 75px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 2px;
+        font-family: roboto;
+        font-size: 14px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+    }
+
+
+}
+
+/*              TABLET SCREEN                */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    body{
+        display: grid;
+        grid-template-columns: 0.6fr 2fr 0.6fr;
+        grid-template-rows: 0.69fr 3.5fr 0.5fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 86.5px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 28px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 18px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 22px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 320px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 300px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 360px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+        font-size: 21px;
+    }
+    .inbox table .inbox-user{
+        width: 150px;
+        padding-left: 3px;
+    }
+    .inbox table .msg-btn{
+        width: 97px;
+    }
+    .msg-btn button{
+        margin-left: 18px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 26px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 75px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 2px;
+        font-family: roboto;
+        font-size: 14px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+
+}
+
+/*              MOBILE LARGE SCREEN            */
+@media screen and (min-width: 425px) and (max-width: 767px){
+    body{
+        display: grid;
+        grid-template-columns: 0.1fr 2fr 0.1fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 76.69px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 6px 20px;
+        font-size: 22px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 270px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 225px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 298px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .inbox table .inbox-user{
+        width: 200px;
+        padding-left: 3px;
+        font-size: 20px;
+    }
+    
+    .msg-btn button{
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 22px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 50px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 1px;
+        font-size: small;
+        font-family: roboto;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+}
+
+/*              MOBILE MEDIUM SCREEN         */
+@media screen and (min-width: 375px) and (max-width: 424px){
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 76.69px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 5px 8px;
+        font-size: 23px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 270px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 225px;
+        margin: 0 auto;
+        font-size: 15px;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 298px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .inbox table .inbox-user{
+        width: 200px;
+        padding-left: 3px;
+        font-size: 21px;
+    }
+    .msg-btn button{
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 22px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 50px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 1px;
+        font-family: roboto;
+        font-size: 12px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+}
+
+/*              MOBILE SMALL SCREEN          */
+@media screen and (min-width: 320px) and (max-width: 374px){
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 76.69px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 5px 8px;
+        font-size: 18px;
+        font-size: 20px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 240px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 220px;
+        margin: 0 auto;
+        font-size: small;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 250px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;
+    }
+    .inbox table .inbox-user{
+        width: 200px;
+        padding-left: 3px;
+        font-size: 18px;
+    }
+    .msg-btn button{
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 22px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 50px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 1px;
+        font-family: roboto;
+        font-size: 12px;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 319px){
+    body{
+        display: grid;
+        grid-template-columns: 0.04fr 2fr 0.04fr;
+        grid-template-rows: 0.6fr 3.5fr 0.2fr;
+        height: 100dvh;
+        width: 100%;
+        grid-template-areas: 
+        'left-side head right-side'
+        'left-side main right-side'
+        'left-side footer right-side';
+        gap: 5px;
+    }
+    /* .left-side, .right-side, .footer, .head, .main{
+        border: 1px solid white;
+    } */
+    .left-side{
+        grid-area: left-side;
+    }
+    .right-side{
+        grid-area: right-side;
+    }
+    .footer{
+        grid-area: footer;
+    }
+
+    /*              HEAD             */
+    .head{
+        grid-area: head;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 76.69px;
+    }
+    .logo{
+        font-family: logo;
+        font-size: 25px;
+    }
+    .signature{
+        font-family: signature;
+        font-size: 15px;
+    }
+
+    /*          CONTENT          */
+    .main{
+        display: grid;
+        grid-template-rows: 0.2fr 0.4fr 2fr 0.3fr;
+        grid-template-areas: 
+        'username'
+        'search'
+        'inbox'
+        'delete-footer';
+        width: 100%;
+        gap: 5px;
+        background: linear-gradient(
+            #138085 -45%,
+            #534666 100%);
+        overflow: auto;
+        box-shadow: 
+        0 0 10px #138085,
+        0 0 25px #138085,
+        0 0 80px #138085;
+        padding: 10px;
+    }
+    /* .username, .search, .inbox, .delete-footer{
+        border: 1px solid white;
+    } */
+
+    /*              USER DETAILS         */
+    .username{
+        grid-area: username;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: logo;
+        padding: 5px 8px;
+        font-size: 18px;
+    }
+    .username button{
+        padding: 4px 8px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 30px 5px #106b6f;
+        cursor: pointer;
+        background-color: #106b6f;
+    }
+    .username button a{
+        text-decoration: none;
+        color: white;
+        font-family: roboto;
+        font-weight: bold;
+    }
+
+    /*              SEARCH TAB           */
+    .search{
+        grid-area: search;
+    }
+    .search form{
+        border-bottom: 1px solid #851813;
+        width: 240px;
+        margin: 0 auto;
+    }
+    .search form input{
+        width: 93%;
+        padding: 6px;
+        outline: none;
+        font-family: roboto;
+        background: transparent;
+        color: white;
+        border: none;
+    }
+    .search form input::placeholder{
+        color: white;
+    }
+    .search form button{
+        color: white;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+    }
+    .search .error{
+        text-align: center;
+        padding-top: 5px;
+        font-family: roboto;
+        font-size: small;
+        font-weight: bold;
+        color: orange;
+    }
+
+    /*              FRIEND LIST          */
+    .inbox{
+        grid-area: inbox;
+        overflow: auto;
+    }
+    .inbox .count-friends{
+        text-align: center;
+        font-family: roboto;
+        border-bottom: 1px solid #534666;
+        width: 220px;
+        margin: 0 auto;
+        font-size: small;
+    }
+
+    .inbox table{
+        margin: 4px auto;
+        width: 250px;
+        height: 40px;
+        font-family: logo;
+        border-radius: 10px;
+        background-color: #534666;
+        box-shadow: 0 0 30px 5px #106b6f;        
+    }
+    .inbox table .inbox-user{
+        width: 200px;
+        padding-left: 3px;
+        font-size: 18px;
+    }
+    .msg-btn button{
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: none;
+        font-family: roboto;
+        background-color: #106b6f;
+    }
+    .msg-btn button a{
+        text-decoration: none;
+        color: white;
+    }
+    .trash-btn{
+        width: 22px;
+        text-align: center;
+    }
+    .trash-btn a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }
+    .status{
+        width: 50px;
+        text-align: center;
+        user-select: none;
+    }
+    .status div{
+        position: relative;
+        bottom: 1px;
+        font-size: small;
+        font-family: roboto;
+    }
+    /* .online{
+        position: relative;
+        bottom: 2px;
+        color: orange;
+        text-shadow: 2px 2px 10px orange;
+    }
+    .offline{
+        position: relative;
+        bottom: 2px;
+        color: white;
+    } */
+
+
+    /*              DELETE BTN           */
+    .delete-footer{
+        grid-area: delete-footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .delete-footer button{
+        padding: 6px;
+        border-radius: 5px;
+        border: none;
+        background-color: #851813;
+        box-shadow: 0 0 30px 5px #851813;
+        cursor: pointer;
+    }
+    .delete-footer button a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-family: roboto;
+    }
+}
